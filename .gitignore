@@ -1,0 +1,14 @@
+*__pycache__
+*ipynb_checkpoints
+
+# Dataset Skipped
+*.jpg
+*.png
+*.jpeg
+
+# Model/Binaries Skipped
+*.h5
+*.pkl
+*.hdf5
+*.model
+*.pickle
