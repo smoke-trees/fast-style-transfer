@@ -36,7 +36,7 @@ utils.imshow(style_image, 'Style Image')
 ```
 
 
-![png](https://github.com/smoke-trees/Anime_Neural_Style_Transfer/images/output_3_0.png)
+![png](https://github.com/smoke-trees/Anime_Neural_Style_Transfer/blob/master/images/output_3_0.png)
 
 
 ## Fast Style Transfer using TF-Hub
@@ -53,7 +53,7 @@ utils.tensor_to_image(stylized_image)
 
 
 
-![png](https://github.com/smoke-trees/Anime_Neural_Style_Transfer/images/output_5_0.png)
+![png](https://github.com/smoke-trees/Anime_Neural_Style_Transfer/blob/master/images/output_5_0.png)
 
 
 
