@@ -12,7 +12,6 @@ import utils
 import tensorflow as tf
 import tensorflow_hub as hub
 
-
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 
@@ -42,10 +41,27 @@ while(cap.isOpened()):
 cap.release()
 cv2.destroyAllWindows()
 
-imgs = sorted(os.listdir('images_transformed/'))
+imgs = sorted(os.listdir('images_dissected/'))
 
 for img in imgs:
-    content_image = utils.load_img('images_transformed/' + img)
+    content_image = utils.load_img('images_dissected/' + img)
     stylized_image = hub_module(tf.constant(content_image), tf.constant(style_image))[0]
     copy = utils.tensor_to_image(stylized_image)
     copy.save('images_transformed/transformed_' + img)
+    
+    
+imgs_transformed = sorted(os.listdir('images_transformed/'))
+
+img_array = []
+for img in imgs_transformed:
+    image = cv2.imread('images_transformed/' + img)
+    height, width, layers = image.shape
+    size = (width,height)
+    img_array.append(image)
+ 
+out = cv2.VideoWriter('project.avi', cv2.VideoWriter_fourcc(*'DIVX'), 30, size)
+
+# Write the file 
+for i in range(len(img_array)):
+    out.write(img_array[i])
+out.release()
